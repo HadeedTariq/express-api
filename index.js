@@ -1,6 +1,7 @@
 import express from 'express'
 import { readFile } from 'fs/promises'
-const app = express.Router()
+const express = express()
+const app=express.Router()
 const getData=async()=>{
     let data = await readFile(new URL('./fake.json', import.meta.url));
     data=JSON.parse(data)
