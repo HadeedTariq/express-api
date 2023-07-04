@@ -1,7 +1,6 @@
 import express from 'express'
 import { readFile } from 'fs/promises'
-const app = express()
-const PORT = 8000
+const app = express.Router()
 const getData=async()=>{
     let data = await readFile(new URL('./fake.json', import.meta.url));
     data=JSON.parse(data)
@@ -32,4 +31,3 @@ app.route('/api/company/:id').get(async(req,res)=>{
     data=data.filter(user=>user.id.toString()===id)
     res.status(200).json(...data)
 })
-app.listen(PORT, () => console.log(`App is listening on port ${PORT}`))
