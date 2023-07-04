@@ -7,6 +7,9 @@ const getData=async()=>{
     data=JSON.parse(data)
     return data;
 }
+app.get('/',(req,res)=>{
+    res.send('Hello world')
+})
 app.get('/company', async (req, res) => {
     let data=await getData()
     const html = `
